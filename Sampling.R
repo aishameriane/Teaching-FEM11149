@@ -358,6 +358,146 @@ length(which(is.na(file$SaleCondition))) # 0 NA
 file$SaleCondition <- as.factor(file$SaleCondition)
 table(file$SaleCondition)
 
+#########################
+## Changing the city names
+########################
+
+table(file$Neighborhood)
+
+file$Neighborhood <- revalue(file$Neighborhood, c(
+  'Blmngtn'="Antwerp", 
+  'Blueste'="Ghent", 
+  'BrDale'="Charleroi", 
+  'BrkSide'="Liège", 
+  'ClearCr'="Brussels", 
+  'CollgCr'="Schaerbeek", 
+  'Crawfor'="Anderlecht", 
+  'Edwards'="Bruges",
+  'Gilbert'="Namur",
+  'IDOTRR'="Leuven",
+  'MeadowV'="SintJansMolenbeek",
+  'Mitchel'="Mons",
+  'NAmes'="Ixelles",
+  'NoRidge'="Aalst",
+  'NPkVill'="Mechelen",
+  'NridgHt'="Uccle",
+  'NWAmes'="LaLouviere",
+  'OldTown'="Hasselt",
+  'Sawyer'="SintNiklaas",
+  'SawyerW'="Kortrijk",
+  'Somerst'="Ostend",
+  'StoneBr'="Tournai",
+  'SWISU'="Genk",
+  'Timber'="Seraing",
+  'Veenker'="Roeselare"
+  ))
+
+file$Neighborhood <- as.factor(file$Neighborhood)
+
+##########################
+# DEALING WITH THE CATEGORIES
+##########################
+
+Charcol <- names(file[,sapply(file, is.character)])
+Charcol
+cat('There are', length(Charcol), 'remaining columns with character values')
+
+#########################
+## Foundation
+########################
+
+table(file$Foundation)
+file$Foundation <- as.factor(file$Foundation)
+table(file$Foundation)
+
+#########################
+## Heating
+########################
+
+table(file$Heating)
+file$Heating <- as.factor(file$Heating)
+table(file$Heating)
+
+table(file$HeatingQC)
+file$HeatingQC <- as.integer(revalue(file$HeatingQC, Qualities))
+table(file$HeatingQC)
+
+table(file$CentralAir)
+file$CentralAir<-as.integer(revalue(file$CentralAir, c('N'=0, 'Y'=1)))
+table(file$CentralAir)
+
+#########################
+## Dates
+########################
+
+str(file$YrSold)
+str(file$MoSold)
+file$MoSold <- as.factor(file$MoSold)
+
+#########################
+## Roof
+########################
+
+table(file$RoofStyle)
+file$RoofStyle <- as.factor(file$RoofStyle)
+table(file$RoofStyle)
+
+table(file$RoofMatl)
+file$RoofMatl <- as.factor(file$RoofMatl)
+table(file$RoofMatl)
+
+#########################
+## Land 
+########################
+
+table(file$LandContour)
+file$LandContour <- as.factor(file$LandContour)
+table(file$LandContour)
+
+table(file$LandSlope)
+file$LandSlope<-as.integer(revalue(file$LandSlope, c('Sev'=0, 'Mod'=1, 'Gtl'=2)))
+table(file$LandSlope)
+
+#########################
+## dwelling 
+########################
+
+table(file$BldgType)
+file$BldgType <- as.factor(file$BldgType)
+table(file$BldgType)
+
+table(file$HouseStyle)
+file$HouseStyle <- as.factor(file$HouseStyle)
+table(file$HouseStyle)
+
+#########################
+## Neighborhood 
+########################
+
+table(file$Neighborhood)
+file$Neighborhood <- as.factor(file$Neighborhood)
+table(file$Neighborhood)
+
+table(file$Condition1)
+file$Condition1 <- as.factor(file$Condition1)
+table(file$Condition1)
+
+table(file$Condition2)
+file$Condition2 <- as.factor(file$Condition2)
+table(file$Condition2)
+
+#########################
+## Pavement 
+########################
+
+table(file$Street)
+file$Street<-as.integer(revalue(file$Street, c('Grvl'=0, 'Pave'=1)))
+table(file$Street)
+
+table(file$PavedDrive)
+file$PavedDrive<-as.integer(revalue(file$PavedDrive, c('N'=0, 'P'=1, 'Y'=2)))
+table(file$PavedDrive)
+
 ##########################
 # Checking everything
 ##########################

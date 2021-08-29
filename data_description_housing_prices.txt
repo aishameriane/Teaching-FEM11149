@@ -35,8 +35,8 @@ LotArea: Lot size in square feet
 
 Street: Type of road access to property
 
-       Grvl	Gravel	
-       Pave	Paved
+       0 Grvl	Gravel	
+       1 Pave	Paved
        	
 Alley: Type of alley access to property
 
@@ -75,9 +75,9 @@ LotConfig: Lot configuration
 	
 LandSlope: Slope of property
 		
-       Gtl	Gentle slope
-       Mod	Moderate Slope	
-       Sev	Severe Slope
+       2 Gtl	Gentle slope
+       1 Mod	Moderate Slope	
+       0 Sev	Severe Slope
 	
 Neighborhood: Physical locations
 
@@ -338,16 +338,16 @@ Heating: Type of heating
 		
 HeatingQC: Heating quality and condition
 
-       Ex	Excellent
-       Gd	Good
-       TA	Average/Typical
-       Fa	Fair
-       Po	Poor
-		
+      5 Ex	Excellent
+      4 Gd	Good
+      3 TA	Average/Typical
+      2 Fa	Fair
+      1 Po	Poor
+      0 NA	None
 CentralAir: Central air conditioning
 
-       N	No
-       Y	Yes
+       0 N	No
+       1 Y	Yes
 		
 Electrical: Electrical system
 
@@ -452,9 +452,9 @@ GarageCond: Garage condition
 		
 PavedDrive: Paved driveway
 
-       Y	Paved 
-       P	Partial Pavement
-       N	Dirt/Gravel
+       2 Y	Paved 
+       1 P	Partial Pavement
+       0 N	Dirt/Gravel
 		
 WoodDeckSF: Wood deck area in square feet
 
@@ -466,15 +466,23 @@ EnclosedPorch: Enclosed porch area in square feet
 
 ScreenPorch: Screen porch area in square feet
 
+LandContour: Flatness of the property
+
+   Lvl  Near Flat/Level 
+   Bnk  Banked - Quick and significant rise from street grade to building
+   HLS  Hillside - Significant slope from side to side
+   Low  Depression
+
 PoolArea: Pool area in square feet
 
 PoolQC: Pool quality
 		
-       Ex	Excellent
-       Gd	Good
-       TA	Average/Typical
-       Fa	Fair
-       NA	No Pool
+       5 Ex	Excellent
+       4 Gd	Good
+       3 TA	Average/Typical
+       2 Fa	Fair
+       1 Po     Poor
+       0 NA	No Pool
 		
 Fence: Fence quality
 		

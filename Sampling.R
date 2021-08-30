@@ -558,5 +558,5 @@ predict_file <- file[predict_sample,]
 
 
 write.csv(x = train_file, paste0(path, "housingprices_train_sample.csv"))
-write.csv(x = test_sample, paste0(path, "housingprices_test_sample.csv"))
-write.csv(x = predict_sample, paste0(path,"housingprices_predict_sample.csv"))
+write.csv(x = test_file, paste0(path, "housingprices_test_sample.csv"))
+write.csv(x = predict_file, paste0(path,"housingprices_predict_sample.csv"))

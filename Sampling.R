@@ -510,7 +510,7 @@ assignment_1 <- TRUE
 
 
 if (assignment_1 == TRUE){
-  variables_remove <- c("^Alley",       "^LotFrontage$", "^LotShape$",    "^LandContour$", "^LandSlope$",    "^Condition1$",  "^Condition2$",
+  variables_remove <- c("Utilities", "^Alley$",       "^LotFrontage$", "^LotShape$",    "^LandContour$", "^LandSlope$",    "^Condition1$",  "^Condition2$",
                         "^HouseStyle$", "^OverallCond$", "^YearRemodAdd$","^RoofStyle$",   "^RoofMatl$",     "^Exterior1st$", "^Exterior2nd$",
                         "^MasVnrType$", "^MasVnrArea$",  "^ExterQual$",   "^Foundation$",  "^BsmtQual$",     "^BsmtExposure$","^BsmtFinType1$",
                         "^BsmtFinSF1$", "^BsmtFinType2$","^BsmtFinSF2$",  "^BsmtUnfSF$",   "^TotalBsmtSF$",  "^Heating$",     "^HeatingQC$",
@@ -533,6 +533,13 @@ if (assignment_1 == TRUE){
   length(variable_list)
   
   file <- file[, -variable_list]
+  
+  table(file$PoolQC)
+  sum(is.na(file$PoolQC))
+  file$PoolQC[is.na(file$PoolQC)] <- 'None'
+  file$PoolQC<-as.integer(revalue(file$PoolQC, Qualities))
+  table(file$PoolQC)
+  
 }
 
 #########################
